@@ -1,0 +1,49 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    background-color: bisque;
+    border: 1px solid rgb(81, 81, 81);
+}
+
+li {
+    display: flex;
+    width: 15rem;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.datos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+a {
+    cursor: pointer;
+    color: red;
+    font-size: 2rem;
+}
+
+input[type="checkbox"] {
+    accent-color: #01a20b;
+    background-color: #01a20b;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+strong {
+    padding: 1rem 0;
+}
