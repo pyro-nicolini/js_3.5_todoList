@@ -8,16 +8,22 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h3>Ingrese su tarea</h3>
-    <input type="text" id="input">
-    <button type="button" id="boton">Agregar Tarea</button>
-    <p>Total: <strong id="total"></strong></p>
-    <p>Realizadas: <strong id="realizadas"></strong></p>
-    <h3>Tareas por hacer</h3>
-    <div class="list">
-        <li><div class="datos"><strong>ID</strong><strong>TAREA</strong></div></li>
+    <div>
+        <h3>Ingrese su tarea</h3>
+        <input type="text" id="input">
+        <button type="button" id="boton">Agregar Tarea</button>
     </div>
-    <div class="list" id="lista"></div>
+    <div style="display: flex; flex-direction: column; justify-content: start; width: 20rem;">
+        <p>Total: <strong id="total"></strong></p>
+        <p>Realizadas: <strong id="realizadas"></strong></p>
+    </div>
+    <div>
+        <h3>Tareas por hacer</h3>
+        <div class="list">
+            <li><div class="datos"><strong>ID</strong><strong>TAREA</strong></div></li>
+        </div>
+        <div class="list" id="lista"></div>
+    </div>
     <script src="assets/js/app.js"></script>
 </body>
 </html>

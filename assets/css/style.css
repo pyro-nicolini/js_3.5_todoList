@@ -1,3 +1,13 @@
+body {
+    background: linear-gradient(35deg, rgb(96, 1, 144), rgb(14, 0, 91));
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .list {
     display: flex;
     flex-direction: column;
@@ -6,15 +16,17 @@
     width: 20rem;
     background-color: bisque;
     border: 1px solid rgb(81, 81, 81);
+    color: rgb(96, 1, 144);
 }
 
 li {
     display: flex;
-    width: 15rem;
+    width: 18rem;
     justify-content: space-between;
     align-items: center;
     list-style: none;
     padding: 0;
+    text-transform: uppercase;
 }
 
 .datos {
@@ -46,4 +58,20 @@ input[type="checkbox"] {
 
 strong {
     padding: 1rem 0;
+}
+
+input[type="text"] {
+    height: 2rem;
+    background-color: bisque;
+}
+
+button {
+    background-color: #01a20b;
+    color: white;
+    font-style: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: .8rem 1rem;
 }
