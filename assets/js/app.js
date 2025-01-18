@@ -1,15 +1,15 @@
 let listaTareas = [{
-    "id": 1,
-    "name": "despertar",
-    "checked": false
+    id: 1,
+    name: "despertar",
+    checked: false
 },{
-    "id": 2,
-    "name": "comer",
-    "checked": false
+    id: 2,
+    name: "comer",
+    checked: false
 },{
-    "id": 3,
-    "name": "ducharse",
-    "checked": false
+    id: 3,
+    name: "ducharse",
+    checked: false
 },];
 
 let lista = document.getElementById('lista');
