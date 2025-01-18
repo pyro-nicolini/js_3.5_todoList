@@ -1,4 +1,17 @@
-let listaTareas = [];
+let listaTareas = [{
+    "id": 1,
+    "name": "despertar",
+    "checked": false
+},{
+    "id": 2,
+    "name": "comer",
+    "checked": false
+},{
+    "id": 3,
+    "name": "ducharse",
+    "checked": false
+},];
+
 let lista = document.getElementById('lista');
 let boton = document.getElementById('boton');
 let input = document.getElementById('input');
@@ -6,7 +19,6 @@ let total = document.getElementById('total');
 let realizadas = document.getElementById('realizadas');
 let tareasTotal = 0;
 let tareasListas = 0;
-
 
 
 function contadorTareas() {
@@ -62,10 +74,6 @@ function crearTarea(task) {
     renderizarLista()
 }
 
-crearTarea("despertar");
-crearTarea("comer");
-crearTarea("dormir");
-
 function actualizarIds() {
     listaTareas = listaTareas.map((tarea, index) => {
         return {...tarea, id: index + 1}
@@ -88,3 +96,4 @@ boton.addEventListener('click', () => {
     }
 })
 
+renderizarLista();
