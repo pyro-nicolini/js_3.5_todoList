@@ -2,11 +2,27 @@ let listaTareas = [];
 let lista = document.getElementById('lista');
 let boton = document.getElementById('boton');
 let input = document.getElementById('input');
+let total = document.getElementById('total');
+let realizadas = document.getElementById('realizadas');
+let tareasTotal = 0;
+let tareasListas = 0;
 
-let checkedTrue = (id) => `
+function contadorTareas() {
+    tareasTotal = listaTareas.length;
+    total.innerText = `${tareasTotal}`
+    let tareasCheck = 0;
+    for (let task of listaTareas){
+        if (task.checked){
+            tareasCheck ++;
+        }
+    }
+    realizadas.innerText = `${tareasCheck}`;
+}
+
+let checkTrue = (id) => `
 <input checked type="checkbox" onchange="cambiarEstado(${id})">
 `
-let checkedFalse = (id) => `
+let checkFalse = (id) => `
 <input type="checkbox" onchange="cambiarEstado(${id})">
 `
 function cambiarEstado(id){
@@ -26,13 +42,12 @@ function renderizarLista(){
         <p>${task.id}</p>
         <p>${task.name}</p>
         </div><div class="btn">
-        ${task.checked?checkedTrue(task.id):checkedFalse(task.id)}
+        ${task.checked?checkTrue(task.id):checkFalse(task.id)}
         <a onclick="borrarPorId(${task.id})">X</a></div>
-        </li>
-        `
+        </li>`
     }
     lista.innerHTML = template;
-    console.log(listaTareas)
+    contadorTareas()
 }
 
 function crearTarea(task) {
@@ -65,7 +80,6 @@ function borrarPorId(id){
 boton.addEventListener('click', () => {
     let tarea = input.value;
     if (tarea.trim() != "") {
-        console.log("click")
         crearTarea(tarea.trim());
         input.value="";
     }
