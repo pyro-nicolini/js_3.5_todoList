@@ -28,7 +28,6 @@ let checkFalse = (id) => `
 <input type="checkbox" onchange="cambiarEstado(${id})">
 `
 function cambiarEstado(id) {
-    const textoTarea = document.getElementById(id);
     let estado = listaTareas.find(estado => estado.id == id);
     if (estado) {
         estado.checked = !estado.checked;
