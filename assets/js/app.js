@@ -41,7 +41,7 @@ function renderizarLista(){
         <div class="datos">
         <p>${task.id}</p>
         <p>${task.name}</p>
-        </div><div class="btn">
+        </div><div class="triggers">
         ${task.checked?checkTrue(task.id):checkFalse(task.id)}
         <a onclick="borrarPorId(${task.id})">X</a></div>
         </li>`
