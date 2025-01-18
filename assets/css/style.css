@@ -6,27 +6,32 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.list {
+.list, .lista {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 20rem;
+    width: 25rem;
     background-color: bisque;
-    border: 1px solid rgb(81, 81, 81);
     color: rgb(96, 1, 144);
+    padding: .5rem 2rem;
+}
+.lista {
+    border: 1px solid rgb(176, 6, 238);
 }
 
 li {
     display: flex;
-    width: 18rem;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    padding: 0;
     text-transform: uppercase;
+    padding: 0 1rem;
 }
 
 .datos {
@@ -50,8 +55,8 @@ a {
 }
 
 input[type="checkbox"] {
-    accent-color: #01a20b;
-    background-color: #01a20b;
+    accent-color: #6200ff;
+    background-color: #a200ff;
     height: 1.5rem;
     width: 1.5rem;
 }
@@ -63,6 +68,7 @@ strong {
 input[type="text"] {
     height: 2rem;
     background-color: bisque;
+    width: 76%;
 }
 
 button {

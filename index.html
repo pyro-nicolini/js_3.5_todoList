@@ -8,21 +8,25 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div>
-        <h3>Ingrese su tarea</h3>
-        <input type="text" id="input">
-        <button type="button" id="boton">Agregar Tarea</button>
-    </div>
-    <div style="display: flex; flex-direction: column; justify-content: start; width: 20rem;">
-        <p>Total: <strong id="total"></strong></p>
-        <p>Realizadas: <strong id="realizadas"></strong></p>
-    </div>
-    <div>
-        <h3>Tareas por hacer</h3>
-        <div class="list">
-            <li><div class="datos"><strong>ID</strong><strong>TAREA</strong></div></li>
+    <div style="width: 100%; display: flex; flex-direction: column;">
+        <h1>To Do List</h1>
+        <h3>Ingresar nueva Tarea</h3>
+        <div style="display: flex; gap: 1rem; justify-content: space-between; align-items: center;">
+            <input type="text" id="input">
+            <button type="button" id="boton">Agregar Tarea</button>
         </div>
-        <div class="list" id="lista"></div>
+    </div>
+    <div style="display: flex; margin-top: 1rem; width: 100%;">
+        <div style="display: flex; flex-direction: column; justify-content: start; width: 30rem;">
+            <p>Total: <strong id="total"></strong></p>
+            <p>Realizadas: <strong id="realizadas"></strong></p>
+        </div>
+        <div>
+            <div class="lista">
+                <li><div class="datos"><strong>ID</strong><strong>TAREA</strong></div></li>
+                <div class="list" id="lista"></div>
+            </div>
+        </div>
     </div>
     <script src="assets/js/app.js"></script>
 </body>
