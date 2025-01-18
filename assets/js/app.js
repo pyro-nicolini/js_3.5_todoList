@@ -7,6 +7,8 @@ let realizadas = document.getElementById('realizadas');
 let tareasTotal = 0;
 let tareasListas = 0;
 
+
+
 function contadorTareas() {
     tareasTotal = listaTareas.length;
     total.innerText = `${tareasTotal}`
@@ -25,13 +27,15 @@ let checkTrue = (id) => `
 let checkFalse = (id) => `
 <input type="checkbox" onchange="cambiarEstado(${id})">
 `
-function cambiarEstado(id){
+function cambiarEstado(id) {
+    const textoTarea = document.getElementById(id);
     let estado = listaTareas.find(estado => estado.id == id);
-    if(estado){
+    if (estado) {
         estado.checked = !estado.checked;
-        renderizarLista();
     }
+    renderizarLista();
 }
+
 
 function renderizarLista(){
     actualizarIds();
@@ -39,8 +43,8 @@ function renderizarLista(){
     for(let task of listaTareas) {
         template +=`<li>
         <div class="datos">
-        <p>${task.id}</p>
-        <p>${task.name}</p>
+        <p id="${task.id}" class="${task.checked?'tachado':''}">${task.id}</p>
+        <p id="${task.id}" class="${task.checked?'tachado':''}">${task.name}</p>
         </div><div class="triggers">
         ${task.checked?checkTrue(task.id):checkFalse(task.id)}
         <a onclick="borrarPorId(${task.id})">X</a></div>
@@ -84,3 +88,4 @@ boton.addEventListener('click', () => {
         input.value="";
     }
 })
+

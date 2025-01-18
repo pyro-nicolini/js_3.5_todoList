@@ -29,6 +29,7 @@ h3 {
 
 strong {
     margin-left: .2rem;
+    display: block;
 }
 
 .sec1 {
@@ -177,4 +178,9 @@ span {
     .sec2 {
         flex-direction: row;
     }
+}
+
+.tachado {
+    text-decoration: line-through;
+    color: gray;
 }
