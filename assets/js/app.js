@@ -31,46 +31,43 @@ function contadorTareas() {
   realizadas.innerText = `${cuantosChecked.length}`;
 }
 
-let checkTrue = (id) => `
-<input checked type="checkbox" onchange="cambiarEstado(${id})">
-`;
-let checkFalse = (id) => `
-<input type="checkbox" onchange="cambiarEstado(${id})">
-`;
 function cambiarEstado(id) {
-  let estado = listaTareas.find((estado) => estado.id == id);
-  if (estado) {
+    let estado = listaTareas.find((estado) => estado.id == id);
     estado.checked = !estado.checked;
-  }
-  renderizarLista();
+    renderizarLista();
 }
 
 function renderizarLista() {
-  actualizarIds();
-  let template = ``;
-  for (let task of listaTareas) {
-    template += `<li>
-        <div class="datos">
-        <p id="${task.id}" class="${task.checked ? "tachado" : ""}">${
-      task.id
-    }</p>
-        <p id="${task.id}" class="${task.checked ? "tachado" : ""}">${
-      task.name
-    }</p>
-        </div><div class="triggers">
-        ${task.checked ? checkTrue(task.id) : checkFalse(task.id)}
-        <a onclick="borrarPorId(${task.id})">X</a></div>
+    actualizarIds();
+    let template = ``;
+    for (let task of listaTareas) {
+      template += `<li>
+          <div class="datos">
+            <p id="${task.id}" class="${task.checked ? "tachado" : ""}">
+              ${task.id}
+            </p>
+            <p id="${task.id}" class="${task.checked ? "tachado" : ""}">
+              ${task.name}
+            </p>
+          </div>
+          <div class="triggers">
+            <input type="checkbox" onchange="cambiarEstado(${task.id})" ${
+              task.checked ? "checked" : ""
+            }>
+            <a onclick="borrarPorId(${task.id})">X</a>
+          </div>
         </li>`;
+    }
+    lista.innerHTML = template;
+    contadorTareas();
   }
-  lista.innerHTML = template;
-  contadorTareas();
-}
 
 function crearTarea(task) {
   let tarea = {};
   tarea.id = listaTareas.length + 1;
   tarea.name = `${task}`;
-  (tarea.checked = false), listaTareas.push(tarea);
+  tarea.checked = false;
+  listaTareas.push(tarea);
   renderizarLista();
 }
 
@@ -93,5 +90,4 @@ boton.addEventListener("click", () => {
     input.value = "";
   }
 });
-
 renderizarLista();
