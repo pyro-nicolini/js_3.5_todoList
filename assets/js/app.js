@@ -1,21 +1,8 @@
 let listaTareas = [
-  {
-    id: 1,
-    name: "despertar",
-    checked: false,
-  },
-  {
-    id: 2,
-    name: "desayunar",
-    checked: false,
-  },
-  {
-    id: 3,
-    name: "estudiar",
-    checked: false,
-  },
+  { name: "despertar", checked: false },
+  { name: "desayunar", checked: false },
+  { name: "estudiar", checked: false },
 ];
-
 let lista = document.getElementById("lista");
 let boton = document.getElementById("boton");
 let input = document.getElementById("input");
@@ -24,24 +11,27 @@ let realizadas = document.getElementById("realizadas");
 let tareasTotal = 0;
 let tareasListas = 0;
 
+function actualizarIds() {
+  listaTareas = listaTareas.map((tarea, index) => {
+    return { ...tarea, id: index + 1, };
+  });
+}
 function contadorTareas() {
   tareasTotal = listaTareas.length;
-  total.innerText = `${tareasTotal}`;
+  total.innerText = tareasTotal;
   let cuantosChecked = listaTareas.filter((tareas) => tareas.checked == true);
-  realizadas.innerText = `${cuantosChecked.length}`;
+  realizadas.innerText = cuantosChecked.length;
 }
-
 function cambiarEstado(id) {
-    let estado = listaTareas.find((estado) => estado.id == id);
-    estado.checked = !estado.checked;
-    renderizarLista();
+  let estado = listaTareas.find((estado) => estado.id == id);
+  estado.checked = !estado.checked;
+  renderizarLista();
 }
-
 function renderizarLista() {
-    actualizarIds();
-    let template = ``;
-    for (let task of listaTareas) {
-      template += `<li>
+  actualizarIds();
+  let template = ``;
+  for (let task of listaTareas) {
+    template += `<li>
           <div class="datos">
             <p id="${task.id}" class="${task.checked ? "tachado" : ""}">
               ${task.id}
@@ -52,37 +42,28 @@ function renderizarLista() {
           </div>
           <div class="triggers">
             <input type="checkbox" onchange="cambiarEstado(${task.id})" ${
-              task.checked ? "checked" : ""
-            }>
+      task.checked ? "checked" : ""
+    }>
             <a onclick="borrarPorId(${task.id})">X</a>
           </div>
         </li>`;
-    }
-    lista.innerHTML = template;
-    contadorTareas();
   }
-
+  lista.innerHTML = template;
+  contadorTareas();
+}
 function crearTarea(task) {
-  let tarea = {};
-  tarea.id = listaTareas.length + 1;
-  tarea.name = `${task}`;
-  tarea.checked = false;
+  let tarea = {
+    name: `${task}`,
+    checked: false,
+  };
   listaTareas.push(tarea);
   renderizarLista();
 }
-
-function actualizarIds() {
-  listaTareas = listaTareas.map((tarea, index) => {
-    return { ...tarea, id: index + 1 };
-  });
-}
-
 function borrarPorId(id) {
   let indiceTask = listaTareas.findIndex((tarea) => tarea.id == id);
   listaTareas.splice(indiceTask, 1);
   renderizarLista();
 }
-
 boton.addEventListener("click", () => {
   let tarea = input.value;
   if (tarea.trim() != "") {
